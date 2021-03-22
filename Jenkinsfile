@@ -9,7 +9,7 @@ pipeline {
         }
         stage('test2') {
             steps {
-                sh 'cd migrations; ./start.sh'
+                sh 'cd migrations; ./tests.sh'
             }
         }
     }
