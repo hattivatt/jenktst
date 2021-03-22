@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "This is testing stuff"
+echo "This is mergetesting stuff"
