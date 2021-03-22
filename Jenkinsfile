@@ -17,7 +17,7 @@ pipeline {
         }
         stage('test3') {
             steps {
-                sh 'echo "Let's wrap it up"'
+                sh 'echo "Let\'s wrap it up"'
             }
         }
     }
