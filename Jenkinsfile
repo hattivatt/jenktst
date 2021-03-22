@@ -1,13 +1,11 @@
 pipeline {
 
     agent any
-
-    environment {
-    }
-
+    stages {
         stage('test1') {
             steps {
                 sh './start.sh'
             }
         }
+    }
 }
