@@ -7,5 +7,10 @@ pipeline {
                 sh './start.sh'
             }
         }
+        stage('test2') {
+            steps {
+                sh 'cd migrations; ./start.sh'
+            }
+        }
     }
 }
