@@ -6,6 +6,7 @@ pipeline {
             steps {
                 sh './start.sh'
 		sh 'pwd'
+		sh 'migrations/tests.sh'
             }
         }
         stage('test2') {
