@@ -1,6 +1,14 @@
 pipeline {
 
     agent any
+
+    environment {
+      TEST="1TEST1"
+      if (env.JOB_NAME == 'testing') {
+        TEST="2TEST2"
+      }
+    }
+
     stages {
         stage('test1') {
             steps {
@@ -9,6 +17,7 @@ pipeline {
 		sh 'migrations/tests.sh'
 		sh 'echo $JOB_NAME'
 		sh 'echo $JOB_BASE_NAME'
+		sh 'echo $TEST'
             }
         }
         stage('test2') {
