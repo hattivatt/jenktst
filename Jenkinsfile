@@ -5,6 +5,7 @@ pipeline {
         stage('test1') {
             steps {
                 sh './start.sh'
+		sh 'pwd'
             }
         }
         stage('test2') {
