@@ -11,7 +11,7 @@ pipeline {
         stage('test1') {
 	    environment {
               NOTHING="${env.SOMETHING}"
-	      PRODORNOT=credentials("TEST_${env.ENV}")
+	      PRODORNOT=credentials('"TEST_${env.ENV}"')
 	    }
             steps {
 	        script {
