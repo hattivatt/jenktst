@@ -11,6 +11,7 @@ pipeline {
         stage('test1') {
 	    environment {
               NOTHING="${env.SOMETHING}"
+	      PRODORNOT=credentials('TEST_${env.ENV}')
 	    }
             steps {
 	        script {
@@ -23,8 +24,7 @@ pipeline {
 		sh 'echo $AZIZ'
 		sh 'echo $ENV'
 		sh 'echo $NOTHING'
-		sh 'echo $JOB_NAME'
-		sh 'echo $JOB_BASE_NAME'
+		sh 'echo $PRODORNOT'
             }
         }
         stage('test2') {
