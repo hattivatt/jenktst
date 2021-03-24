@@ -1,5 +1,5 @@
 node {
-   readProperties(file: "migrations/${JOB_BASE_NAME}.properties").each {key, value -> env[key] = value }
+   readProperties(file: "migrations/${JOB_NAME}.split('-')[0].properties").each {key, value -> env[key] = value }
    readProperties(file: "migrations/.properties").each {key, value -> env[key] = value }
 }
 
