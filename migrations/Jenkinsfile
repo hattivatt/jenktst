@@ -7,10 +7,11 @@ pipeline {
             steps {
 	        script {
                   readProperties(file: "migrations/${JOB_BASE_NAME}.properties").each {key, value -> env[key] = value }
+                  readProperties(file: "migrations/.properties").each {key, value -> env[key] = value }
                 }
                 sh './start.sh'
 		sh 'pwd'
-		sh 'echo $TEST'
+		sh 'echo $SOMETHING'
 		sh 'echo $AZIZ'
 		sh 'echo $ENV'
             }
