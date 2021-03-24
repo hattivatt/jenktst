@@ -27,7 +27,9 @@ pipeline {
 		sh 'echo $PRODORNOT'
 		script {
                   if (env.ENV == 'DEV')
-		    sh  'echo "I am conditional thingie"'
+		    sh '''#!/bin/bash
+		          echo "I am conditional thingie"
+		          echo "do not ever doubt it"'''
 		}
             }
         }
