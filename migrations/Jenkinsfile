@@ -23,6 +23,8 @@ pipeline {
 		sh 'echo $AZIZ'
 		sh 'echo $ENV'
 		sh 'echo $NOTHING'
+		sh 'echo $JOB_NAME'
+		sh 'echo $JOB_BASE_NAME'
             }
         }
         stage('test2') {
