@@ -4,6 +4,9 @@ pipeline {
 
     stages {
         stage('test1') {
+	    environment {
+              NOTHING="${env.SOMETHING}"
+	    }
             steps {
 	        script {
                   readProperties(file: "migrations/${JOB_BASE_NAME}.properties").each {key, value -> env[key] = value }
@@ -14,6 +17,7 @@ pipeline {
 		sh 'echo $SOMETHING'
 		sh 'echo $AZIZ'
 		sh 'echo $ENV'
+		sh 'echo $NOTHING'
             }
         }
         stage('test2') {
