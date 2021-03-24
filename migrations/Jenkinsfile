@@ -12,6 +12,7 @@ pipeline {
 		sh 'pwd'
 		sh 'echo $TEST'
 		sh 'echo $AZIZ'
+		sh 'echo $ENV'
             }
         }
         stage('test2') {
