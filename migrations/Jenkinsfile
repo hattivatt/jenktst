@@ -25,6 +25,10 @@ pipeline {
 		sh 'echo $ENV'
 		sh 'echo $NOTHING'
 		sh 'echo $PRODORNOT'
+		script {
+                  if (env.ENV == 'DEV')
+		    sh  'echo "I am conditional thingie"'
+		}
             }
         }
         stage('test2') {
