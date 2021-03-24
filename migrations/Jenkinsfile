@@ -2,22 +2,16 @@ pipeline {
 
     agent any
 
-    environment {
-      TEST="1TEST1"
-      if (env.JOB_NAME == 'testing') {
-        TEST="2TEST2"
-      }
-    }
-
     stages {
         stage('test1') {
             steps {
+	        script {
+                  readProperties(file: migrations/test.properties).each {key, value -> env[key] = value }
+                }
                 sh './start.sh'
 		sh 'pwd'
-		sh 'migrations/tests.sh'
-		sh 'echo $JOB_NAME'
-		sh 'echo $JOB_BASE_NAME'
 		sh 'echo $TEST'
+		sh 'echo $AZIZ'
             }
         }
         stage('test2') {
