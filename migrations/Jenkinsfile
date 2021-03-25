@@ -32,6 +32,15 @@ pipeline {
 		          echo "do not ever doubt it"'''
 		}
             }
+	    post {
+              always {
+	        sh 'echo "Hello, once again"'
+		script {
+                  if (env.ENV == 'DEV')
+		    sh 'echo "This is still testing stuff"'
+		}
+	      }
+	    }
         }
         stage('test2') {
 	    when {
