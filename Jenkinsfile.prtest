@@ -20,25 +20,10 @@ pipeline {
                 }
                 sh './start.sh'
 		sh 'pwd'
-		sh 'echo $SOMETHING'
-		sh 'echo $AZIZ'
-		sh 'echo $ENV'
-		sh 'echo $NOTHING'
-		sh 'echo $PRODORNOT'
-		script {
-                  if (env.ENV == 'DEV')
-		    sh '''#!/bin/bash
-		          echo "I am conditional thingie"
-		          echo "do not ever doubt it"'''
-		}
             }
 	    post {
               always {
 	        sh 'echo "Hello, once again"'
-		script {
-                  if (env.ENV == 'DEV')
-		    sh 'echo "This is still testing stuff"'
-		}
 	      }
 	    }
         }
