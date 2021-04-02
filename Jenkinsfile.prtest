@@ -20,7 +20,6 @@ pipeline {
                 }
                 sh './start.sh'
 		sh 'pwd'
-		sh 'ecch'
             }
 	    post {
               always {
