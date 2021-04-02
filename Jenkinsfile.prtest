@@ -24,7 +24,7 @@ pipeline {
             }
 	    post {
               always {
-	        sh 'echo "Hello, once again"'
+	        sh 'echo "Hello, once againy"'
 	      }
 	    }
         }
