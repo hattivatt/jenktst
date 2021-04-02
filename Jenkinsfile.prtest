@@ -20,6 +20,7 @@ pipeline {
                 }
                 sh './start.sh'
 		sh 'pwd'
+		sh 'echo "hoho"'
             }
 	    post {
               always {
