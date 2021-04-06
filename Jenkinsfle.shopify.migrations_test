@@ -1,0 +1,39 @@
+pipeline {
+
+    agent none
+
+    environment {
+    ECR_HOST="785837454585.dkr.ecr.us-east-1.amazonaws.com"
+    SHOPIFY_IMAGE_TAG="latest"
+    }
+
+    stages {
+        stage('Check migrations')  {
+            agent { label  'infra' }
+            environment {
+                HOST=""
+                NEXT_PUBLIC_HOST=""
+                DB_USER="forum"
+                DB_PASSWORD=credentials('DB_FORUM_PASS_DEV')
+                DB_NAME="shopify"
+                DB_HOST="127.0.0.1"
+                DB_PORT=5432
+                PROXY_PATH="/a/p/"
+                PEERBOARD_API_HOST="https://api.peerboard.com/v1"
+                PEERBOARD_PARTNER_TOKEN="f53c24ab9e696d04e8ade72e11508d05"
+                PORT=3000
+            }
+            steps {
+                 sh 'docker-compose build'
+                 sh 'docker run -d --rm -e "POSTGRES_USER=$DB_USER" -e "POSTGRES_PASSWORD=$DB_PASSWORD" -e "POSTGRES_DB=DB_NAME" \
+                     --network host --name postgres postgres:12'
+                 sh 'docker-compose -f  docker-compose-migrate.yml up'
+            }
+            post {
+              always {
+                sh 'docker stop postgres'
+              }
+            }
+        }
+    }
+}
