@@ -27,7 +27,7 @@ pipeline {
                  sh 'docker run -d --rm -e "POSTGRES_USER=$DB_USER" -e "POSTGRES_PASSWORD=$DB_PASSWORD" -e "POSTGRES_DB=$DB_NAME" \
                      --network host --name postgres postgres:12'
 		 sh 'sleep 5'
-                 sh 'docker-compose run shopify'
+                 sh 'docker-compose run --rm shopify'
             }
             post {
               always {
