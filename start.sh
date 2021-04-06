@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Thiss iai woskng"
+echo "Thiss iai woskn"
