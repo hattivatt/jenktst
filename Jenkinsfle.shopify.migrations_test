@@ -1,6 +1,6 @@
 pipeline {
 
-    agent all
+    agent any
 
     environment {
     ECR_HOST="785837454585.dkr.ecr.us-east-1.amazonaws.com"
