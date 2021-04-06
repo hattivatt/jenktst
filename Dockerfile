@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt update && apt install postgresql-client-12
+RUN apt update && apt install -y postgresql-client-12
 
 RUN mkdir /shopify
 WORKDIR /shopify
