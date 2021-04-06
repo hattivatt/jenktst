@@ -1,6 +1,6 @@
 pipeline {
 
-    agent none
+    agent all
 
     environment {
     ECR_HOST="785837454585.dkr.ecr.us-east-1.amazonaws.com"
@@ -9,7 +9,6 @@ pipeline {
 
     stages {
         stage('Check migrations')  {
-            agent { label  'infra' }
             environment {
                 HOST=""
                 NEXT_PUBLIC_HOST=""
