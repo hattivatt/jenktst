@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Thisiai workng"
+echo "This iai workng"
