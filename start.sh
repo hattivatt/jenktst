@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Thisi is workng"
+echo "Thisi i workng"
