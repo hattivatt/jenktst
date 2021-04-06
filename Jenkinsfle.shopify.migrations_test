@@ -29,7 +29,7 @@ pipeline {
 		 sh 'sleep 5'
 		 sh 'docker run -d --rm -e DB_USER -e DB_PASSWORD -e DB_NAME -e DB_HOST -e DB_PORT \
 		     --network host ${ECR_HOST}/shopify:${SHOPIFY_IMAGE_TAG}'
-#                 sh 'docker-compose up --abort-on-container-exit --exit-code-from shopify'
+//                 sh 'docker-compose up --abort-on-container-exit --exit-code-from shopify'
             }
             post {
               always {
