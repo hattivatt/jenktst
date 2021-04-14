@@ -1,0 +1,44 @@
+node {
+   readProperties(file: "migrations/${JOB_NAME.split('/')[0]}.properties").each {key, value -> env[key] = value }
+   readProperties(file: "migrations/.properties").each {key, value -> env[key] = value }
+}
+
+pipeline {
+
+    agent any
+
+    stages {
+        stage('test1') {
+	    environment {
+              NOTHING="${env.SOMETHING}"
+	      PRODORNOT=credentials("TEST_${env.ENV}")
+	    }
+            steps {
+	        script {
+                  readProperties(file: "migrations/${JOB_BASE_NAME}.properties").each {key, value -> env[key] = value }
+                  readProperties(file: "migrations/.properties").each {key, value -> env[key] = value }
+                }
+                sh './start.sh'
+		sh 'pwd'
+            }
+	    post {
+              always {
+	        sh 'echo "Hello, once again"'
+	      }
+	    }
+        }
+        stage('test2') {
+	    when {
+	        changeset "migrations/*.sh"
+	    }
+            steps {
+                sh 'cd migrations; ./tests.sh'
+            }
+        }
+        stage('test3') {
+            steps {
+                sh 'echo "Let\'s wrap it up"'
+            }
+        }
+    }
+}
