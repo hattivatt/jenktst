@@ -15,7 +15,7 @@ pipeline {
             agent { label "${env.ENV.toLowerCase()}" }
 	    environment {
               NOTHING="${env.SOMETHING}"
-	      PRODORNOT=credentials("TEST_${env.ENV}")
+	      PRODORNOT=credentials("TEST_${env.ENV}")/kek
 	      OTTT="${env.ENV.toLowerCase()}"
 	    }
             steps {
@@ -27,6 +27,7 @@ pipeline {
 		          echo "do not ever doubt it"'''
 		}
 		sh 'echo $FORUM_IMAGE_TAG'
+		sh 'echo $PRODORNOT'
 		sh 'printenv | sort'
             }
 	    post {
