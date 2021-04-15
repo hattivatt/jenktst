@@ -19,7 +19,7 @@ pipeline {
 	      OTTT="${env.ENV.toLowerCase()}"
 	    }
             steps {
-                sh './start.sh'
+ //               sh './start.sh'
 		script {
                   if (env.ENV == 'DEV')
 		    sh '''#!/bin/bash
