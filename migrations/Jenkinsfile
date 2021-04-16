@@ -27,6 +27,7 @@ pipeline {
 		}
 		sh 'echo $FORUM_IMAGE_TAG'
 		sh 'echo $NOTHING'
+		sh 'echo $ANYTHING'
 		sh 'printenv | sort'
             }
 	    post {
