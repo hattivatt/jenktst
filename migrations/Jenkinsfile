@@ -15,7 +15,7 @@ pipeline {
             agent { label "${env.ENV.toLowerCase()}" }
 	    environment {
               NOTHING="${env.SOMETHING}"
-              ANYTHING="wow"
+              ANYTHING="ow"
 	      OTTT="${env.ENV.toLowerCase()}"
 	    }
             steps {
