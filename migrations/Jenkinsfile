@@ -1,4 +1,5 @@
 node ('master') {
+   string branchName = env.GIT_BRANCH.split('/')[0]
    git branch: env.GIT_BRANCH, url: env.GIT_URL
    readProperties(interpolate: true, file: "migrations/${JOB_NAME.split('/')[0]}.properties").each {key, value -> env[key] = value }
    readProperties(interpolate: true, file: "migrations/.properties").each {key, value -> env[key] = value }
