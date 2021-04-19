@@ -1,5 +1,5 @@
 node ('master') {
-   git url: 'https://github.com/hattivatt/jenktst'
+   git url: '${GIT_URL}'
    readProperties(interpolate: true, file: "migrations/${JOB_NAME.split('/')[0]}.properties").each {key, value -> env[key] = value }
    readProperties(interpolate: true, file: "migrations/.properties").each {key, value -> env[key] = value }
 }
