@@ -3,7 +3,7 @@ node ('master') {
    echo env.GIT_URL
    echo env.GIT_BRANCH
    echo branchName
-   git branch: 'main', url: 'https://github.com/hattivatt/jenktst'
+   git branch: 'main'
    readProperties(interpolate: true, file: "migrations/${JOB_NAME.split('/')[0]}.properties").each {key, value -> env[key] = value }
    readProperties(interpolate: true, file: "migrations/.properties").each {key, value -> env[key] = value }
 }
